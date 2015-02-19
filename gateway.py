@@ -14,7 +14,7 @@ else:
 
 class CardInfoError(Exception):
 	pass
-
+	
 def _check_card_info( info={} ):
 		
 	if not info.has_key('number'):
