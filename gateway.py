@@ -38,7 +38,7 @@ def charge( amount, currency='cad', card_info={}, description=None, metadata={},
 
 	charge = stripe.Charge.create(
 			amount=amount,
-			currency=currency,
+			currency=currency.lower(),
 			card=card_info,
 			description=description,
 			metadata=metadata,

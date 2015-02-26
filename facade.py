@@ -8,7 +8,7 @@ import sys
 import logging
 logger = logging.getLogger('vapeeuphoria.apps.checkout')
 
-def charge(order_number, total, bankcard):
+def charge(order_number, total, bankcard, currency='CAD'):
     try:
         metadata = {
             'order_number': order_number,
@@ -20,7 +20,8 @@ def charge(order_number, total, bankcard):
             'cvc': bankcard.ccv,
         }
         total_in_cents = int(total.incl_tax * 100)
-        charge = gateway.charge( total_in_cents, card_info=card_info, metadata=metadata )
+
+        charge = gateway.charge( total_in_cents, currency=currency.lower(), card_info=card_info, metadata=metadata )
 
 
     except gateway.CardInfoError, e:
