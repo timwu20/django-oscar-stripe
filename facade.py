@@ -6,7 +6,7 @@ from django.utils.translation import ugettext as _
 import sys
 
 import logging
-logger = logging.getLogger('vapeeuphoria.apps.checkout')
+logger = logging.getLogger(__name__)
 
 def charge(order_number, total, bankcard, currency='CAD'):
     try:
